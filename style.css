@@ -20,7 +20,7 @@ h6 {
 }
 
 .hero-bg {
-    background-image: url('image/7.jpg');
+    background-image: url('image/background.jpg');
     background-size: cover;
     background-position: center;
     animation: kenburns 20s ease-out infinite;
@@ -77,8 +77,8 @@ h6 {
     box-shadow: 0 0 0 3px rgba(168, 139, 106, 0.2);
 }
 
-/* Video Opener Styles */
-#video-opener {
+/* Arabic Calligraphy Invitation Opener */
+.invitation-opener {
     position: fixed;
     top: 0;
     left: 0;
@@ -87,42 +87,111 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #C7A19A;
+  padding: 1.5rem;
+  background: radial-gradient(ellipse at center, #76534c 0%, #402b2c 55%, #211a20 100%);
     z-index: 10001;
-    transition: opacity 0.8s ease;
+  opacity: 1;
+  transition: opacity 1s ease;
 }
 
-#envelope-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.calligraphy-card {
+  width: min(100%, 42rem);
+  padding: clamp(2rem, 7vw, 4rem);
+  text-align: center;
+  border: 1px solid rgba(242, 218, 172, 0.55);
+  outline: 1px solid rgba(242, 218, 172, 0.2);
+  outline-offset: 8px;
+  color: #f6e9d1;
+  animation: calligraphy-card-enter 1.2s ease-out both;
 }
 
-#open-video-button {
-    position: relative;
-    z-index: 2;
-    padding: 1rem 2rem;
-    background-color: rgba(152, 102, 97, 0.8);
-    color: white;
-    border: 2px solid white;
-    border-radius: 50px;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+.calligraphy-star {
+  display: inline-block;
+  color: #e8c888;
+  font-size: 1.5rem;
+  animation: star-glow 2.5s ease-in-out infinite alternate;
+}
+
+.arabic-calligraphy {
+  margin: 1.5rem 0 1rem;
+  color: #f3d69a;
+  font-family: 'Amiri', serif;
+  font-size: clamp(2rem, 7vw, 4rem);
+  line-height: 1.7;
+  text-shadow: 0 0 24px rgba(243, 214, 154, 0.28);
+  animation: calligraphy-reveal 1.8s 0.2s ease-out both;
+}
+
+.calligraphy-divider {
+  color: #e8c888;
+  letter-spacing: 0.35rem;
+}
+
+.calligraphy-caption {
+  margin: 1rem 0 2rem;
+  color: rgba(246, 233, 209, 0.82);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+  letter-spacing: 0.04em;
+}
+
+#open-invitation-button {
+  padding: 0.85rem 2rem;
+  background-color: #e8c888;
+  color: #402b2c;
+  border: 0;
+  border-radius: 9999px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#open-video-button:hover {
-    background-color: rgba(152, 102, 97, 0.9);
-    transform: scale(1.05);
+#open-invitation-button:hover {
+  background-color: #f3d69a;
+  transform: translateY(-2px);
+}
+
+.invitation-opener.is-opening {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.invitation-opener.is-opening .calligraphy-card {
+  animation: calligraphy-card-exit 0.8s ease-in both;
+}
+
+@keyframes calligraphy-card-enter {
+  from { opacity: 0; transform: translateY(1rem) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes calligraphy-reveal {
+  from { opacity: 0; transform: scale(0.92); filter: blur(6px); }
+  to { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+@keyframes calligraphy-card-exit {
+  to { opacity: 0; transform: scale(1.04); filter: blur(5px); }
+}
+
+@keyframes star-glow {
+  from { opacity: 0.65; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1.1); }
 }
 
 .main-content-wrapper {
     opacity: 0;
     transition: opacity 1s ease;
+  }
+
+  #main-content-wrapper > main {
+    width: 100%;
+    max-width: none;
+    background-image: linear-gradient(rgba(20, 16, 15, 0.45), rgba(20, 16, 15, 0.45)), url('image/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* Animations */

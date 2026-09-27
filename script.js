@@ -1,44 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ===============================
-     VIDEO OPENER + MUSIC START
-     =============================== */
+    /* ===============================
+      CALLIGRAPHY OPENER + MUSIC START
+      =============================== */
 
-  const openButton = document.getElementById('open-video-button');
-  const videoOpener = document.getElementById('video-opener');
-  const envelopeVideo = document.getElementById('envelope-video');
+    const openButton = document.getElementById('open-invitation-button');
+    const invitationOpener = document.getElementById('invitation-opener');
   const mainContentWrapper = document.getElementById('main-content-wrapper');
 
   const music = document.getElementById('background-music');
   const musicPlayer = document.getElementById('music-player');
   const musicIcon = document.getElementById('music-icon');
 
-  let isPlaying = true;
+  let isPlaying = false;
 
   openButton.addEventListener('click', async () => {
-    openButton.style.display = 'none';
-    envelopeVideo.play();
+    openButton.disabled = true;
+    invitationOpener.classList.add('is-opening');
+    mainContentWrapper.style.opacity = '1';
+    document.body.classList.remove('body-no-scroll');
 
-    // ✅ Start music ONLY after user click
     try {
       music.volume = 0.7;
       await music.play();
       musicIcon.classList.remove('fa-play');
       musicIcon.classList.add('fa-pause');
-      isPlaying = true; // 🔥 CRITICAL FIX
+      isPlaying = true;
     } catch (err) {
       console.warn('Music blocked:', err);
     }
 
     setTimeout(() => {
-      videoOpener.style.opacity = '0';
-      mainContentWrapper.style.opacity = '1';
-      document.body.classList.remove('body-no-scroll');
-
-      setTimeout(() => {
-        videoOpener.style.display = 'none';
-      }, 650);
-    }, 6500);
+      invitationOpener.style.display = 'none';
+    }, 1000);
   });
 
   /* ===============================
@@ -96,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
      COUNTDOWN TIMER
      =============================== */
 
-  const weddingDate = new Date(2026, 4, 17, 11, 0, 0).getTime(); 
+  const weddingDate = new Date(2026, 9, 18, 17, 0, 0).getTime(); 
 
   const timerInterval = setInterval(() => {
     const now = new Date().getTime();
@@ -170,7 +164,7 @@ if (whatsappBtn) {
       return;
     }
 
-    const phoneNumber = "917025678013";
+    const phoneNumber = "918089188695";
 
     const text = `Happy married Life
 From: ${name}
