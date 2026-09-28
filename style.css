@@ -651,3 +651,73 @@ footer {
     inset 0 0 120px rgba(0, 0, 0, 0.6),
     inset 0 0 200px rgba(0, 0, 0, 0.4);
 }
+
+/* =========================================
+   CALENDAR & LOCATION OUTLINE BUTTON
+   ========================================= */
+
+.action-outline {
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 10px 22px;
+
+    /* Yellow/gold edge */
+    border: 1px solid rgba(255, 208, 0, 0.75);
+
+    /* Rounded pill shape */
+    border-radius: 9999px;
+
+    /* Keep your existing glass design */
+    background: rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    color: #d1d5db !important;
+
+    /* Subtle gold glow */
+    box-shadow:
+        0 0 8px rgba(255, 208, 0, 0.12),
+        inset 0 0 8px rgba(255, 208, 0, 0.04);
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Hover effect for desktop */
+.action-outline:hover {
+    border-color: #ffd000;
+
+    background: rgba(255, 208, 0, 0.08);
+
+    box-shadow:
+        0 0 12px rgba(255, 208, 0, 0.30),
+        inset 0 0 10px rgba(255, 208, 0, 0.06);
+
+    transform: translateY(-2px);
+}
+
+/* Tap effect for mobile */
+.action-outline:active {
+    transform: scale(0.97);
+
+    background: rgba(255, 208, 0, 0.14);
+
+    box-shadow:
+        0 0 16px rgba(255, 208, 0, 0.40);
+}
+
+/* Mobile adjustment */
+@media (max-width: 640px) {
+    .action-outline {
+        padding: 9px 18px;
+        font-size: 0.95rem;
+    }
+}
